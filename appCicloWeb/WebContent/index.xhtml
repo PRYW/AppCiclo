@@ -1,0 +1,25 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+xmlns:p="http://primefaces.org/ui">
+<h:head></h:head> 
+
+<body style="background-image: url(assets/imagenes/Fondo.jpg); background-repeat: no-repeat;background-size: 100%">
+<div align="center" style="padding-top: 15%;">
+<p:panel header="Iniciar Sesión" style="width: 500px;">
+<p:growl autoUpdate="true"></p:growl>
+<h:form>
+<h:panelGrid columns="2" >
+<h:outputText value="CEDULA/ID: " />
+<p:inputText placeholder="1004144554" value="#{controllerEmp.idUsuario}"> </p:inputText>
+<h:outputText value="Contraseña: " />
+<p:inputText type="password" placeholder="********" value="#{controllerEmp.clave}"></p:inputText>
+</h:panelGrid>
+<p:commandButton  value="Iniciar" icon="ui-icon-key" action="#{controllerEmp.actionLogin()}"></p:commandButton>
+</h:form>
+</p:panel>
+</div>
+</body> 
+</html>

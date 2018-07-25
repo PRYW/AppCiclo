@@ -16,13 +16,22 @@ public class ControllerEmp {
 	private ManagerEmp managerUsuarios;
 	public String actionLogin(){
 	try {
+		System.out.println("Entramos del metodo comprobar");
 	boolean respuesta=managerUsuarios.comprobarUsuario(idUsuario, clave);
+	System.out.println("salimos del metodo comprobar");
 	JSFUtil.crearMensajeInfo("Login correcto");
-	//verificamos si el acceso es con admin:
-	if(managerUsuarios.TipoUsuario(idUsuario).equals("ADMINISTRADOR")){
+	System.out.println("entramos a tipo");
+	String TipoUser=managerUsuarios.TipoUsuario(idUsuario);
+	System.out.println("Tipo es "+TipoUser);
+	if(TipoUser.equals("ADMINISTRADOR")){
 	return "admin/index";
+	}else {
+		if(TipoUser.equals("EMPLEADO")){
+			return "emp/index";
+			}else {
+				return "";
+			}	
 	}
-	return "emp/index";
 	} catch (Exception e) {
 	JSFUtil.crearMensajeError(e.getMessage());
 	e.printStackTrace();
